@@ -199,7 +199,7 @@ export const ServeyLayout: React.FC<ServeyLayoutProps> = ({ className }) => {
             </Step>
           );
         })}
-        <Footer />
+        {/* <Footer /> */}
       </Stepper>
     </div>
   );

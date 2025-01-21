@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { CategoriesHome } from "./components/Categories/CategoryHome";
 import { SettingsHome } from "./components/SettingsHome";
 import { ThemeProvider } from "./components/theme-provider";
+import { SidebarProvider } from "./components/ui/sidebar";
 
 const queryClient = new QueryClient();
 
@@ -19,7 +20,15 @@ function App() {
     },
     {
       path: "/settings",
-      element: <SettingsHome />,
+      element: (
+        <SidebarProvider>
+          <SettingsHome />
+        </SidebarProvider>
+      ),
+    },
+    {
+      path: "/settings/profile",
+      element: <div>Profile</div>,
     },
   ]);
 
@@ -28,7 +37,7 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
           <Layout>
-            <RouterProvider router={router}/>
+            <RouterProvider router={router} />
           </Layout>
         </ThemeProvider>
       </QueryClientProvider>
