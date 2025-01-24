@@ -62,7 +62,7 @@ export default function ProfileForm() {
             <FormLabel>Username</FormLabel>
             <FormControl>
               <Input
-                placeholder="shadcn"
+                placeholder="Username"
                 {...register("username", {
                   required: "Username is required",
                   minLength: {
@@ -83,23 +83,15 @@ export default function ProfileForm() {
           <FormItem>
             <FormLabel>Email</FormLabel>
             <FormControl>
-              <Select
-                defaultValue=""
-                onValueChange={(value) => setValue("email", value)}
-              >
-                <SelectTrigger>
-                  <SelectValue placeholder="Select a verified email to display" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="m@example.com">m@example.com</SelectItem>
-                  <SelectItem value="m@google.com">m@google.com</SelectItem>
-                  <SelectItem value="m@support.com">m@support.com</SelectItem>
-                </SelectContent>
-              </Select>
+              <Input
+                placeholder="Email"
+                {...register("email", {
+                  required: "email is required",
+                })}
+              />
             </FormControl>
             <FormDescription>
-              You can manage verified email addresses in your{" "}
-              <Link to="/">email settings</Link>.
+              You can update your email addresse.
             </FormDescription>
             <FormMessage>{errors.email?.message}</FormMessage>
           </FormItem>
@@ -121,8 +113,7 @@ export default function ProfileForm() {
               />
             </FormControl>
             <FormDescription>
-              You can <span>@mention</span> other users and organizations to
-              link to them.
+              Write or update your bio.
             </FormDescription>
             <FormMessage>{errors.bio?.message}</FormMessage>
           </FormItem>
