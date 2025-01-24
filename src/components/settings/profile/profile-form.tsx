@@ -1,6 +1,5 @@
 import { useFieldArray, useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
-import { cn } from "../../../utils/cn";
+import { cn } from "@/utils/cn";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -11,13 +10,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 
 interface ProfileFormValues {
@@ -33,7 +25,6 @@ export default function ProfileForm() {
     control,
     handleSubmit,
     register,
-    setValue,
     formState: { errors },
   } = useForm<ProfileFormValues>({
     defaultValues: {
