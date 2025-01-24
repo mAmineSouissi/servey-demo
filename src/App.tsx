@@ -5,6 +5,7 @@ import { CategoriesHome } from "./components/Categories/CategoryHome";
 import { ThemeProvider } from "./components/theme-provider";
 import Settings from "./components/settings/Settings";
 import SettingsProfile from "./components/settings/profile/SettingsProfile";
+import SettingsAccount from "./components/settings/account/SettingsAccount";
 
 const queryClient = new QueryClient();
 
@@ -28,7 +29,7 @@ function App() {
         },
         {
           path: "account",
-          element: <div>Account Settings</div>,
+          element: <SettingsAccount />,
         },
         {
           path: "appearance",
