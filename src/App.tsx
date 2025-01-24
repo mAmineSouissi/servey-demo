@@ -2,9 +2,9 @@ import { Layout } from "./components/Layout/Layout";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { CategoriesHome } from "./components/Categories/CategoryHome";
-import { SettingsHome } from "./components/SettingsHome";
 import { ThemeProvider } from "./components/theme-provider";
-import { SidebarProvider } from "./components/ui/sidebar";
+import Settings from "./components/settings/Settings";
+import SettingsProfile from "./components/settings/profile/SettingsProfile";
 
 const queryClient = new QueryClient();
 
@@ -20,15 +20,21 @@ function App() {
     },
     {
       path: "/settings",
-      element: (
-        <SidebarProvider>
-          <SettingsHome />
-        </SidebarProvider>
-      ),
-    },
-    {
-      path: "/settings/profile",
-      element: <div>Profile</div>,
+      element: <Settings />,
+      children: [
+        {
+          path: "",
+          element: <SettingsProfile />,
+        },
+        {
+          path: "account",
+          element: <div>Account Settings</div>,
+        },
+        {
+          path: "appearance",
+          element: <div>Appearance Settings</div>,
+        },
+      ],
     },
   ]);
 
