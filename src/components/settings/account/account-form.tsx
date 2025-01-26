@@ -58,10 +58,15 @@ export function AccountForm() {
       ),
     });
   }
+  const Genders = [
+    { value: "male", label: "Male" },
+    { value: "female", label: "Female" },
+    { value: "other", label: "other(soap...)" },
+  ];
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 pl-2">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 pl-2">
         <FormField
           control={form.control}
           name="name"
@@ -138,9 +143,13 @@ export function AccountForm() {
                       <SelectContent>
                         <SelectGroup>
                           <SelectLabel>Gendes</SelectLabel>
-                          <SelectItem value="male">Male</SelectItem>
-                          <SelectItem value="female">Female</SelectItem>
-                          <SelectItem value="other">other{' (soap)'}</SelectItem>
+                          {Genders.map((gender) => {
+                            return (
+                              <SelectItem value={gender.value}>
+                                {gender.label}
+                              </SelectItem>
+                            );
+                          })}
                         </SelectGroup>
                       </SelectContent>
                     </Select>
@@ -148,7 +157,7 @@ export function AccountForm() {
                 </PopoverTrigger>
               </Popover>
               <FormDescription>
-                This is the language that will be used in the dashboard.
+                This is the gender that will be used in the dashboard.
               </FormDescription>
               <FormMessage />
             </FormItem>
