@@ -6,6 +6,7 @@ import { ThemeProvider } from "./components/theme-provider";
 import Settings from "./components/settings/Settings";
 import SettingsProfile from "./components/settings/profile/SettingsProfile";
 import SettingsAccount from "./components/settings/account/SettingsAccount";
+import SettingsAppearance from "./components/settings/appearance/SettingsAppearance";
 
 const queryClient = new QueryClient();
 
@@ -33,7 +34,7 @@ function App() {
         },
         {
           path: "appearance",
-          element: <div>Appearance Settings</div>,
+          element: <SettingsAppearance />,
         },
       ],
     },
