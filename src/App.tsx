@@ -7,6 +7,7 @@ import Settings from "./components/settings/Settings";
 import SettingsProfile from "./components/settings/profile/SettingsProfile";
 import SettingsAccount from "./components/settings/account/SettingsAccount";
 import SettingsAppearance from "./components/settings/appearance/SettingsAppearance";
+import { Dashboard } from "./components/dashboard/Dashboard";
 
 const queryClient = new QueryClient();
 
@@ -14,7 +15,7 @@ function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <div>Hello world!</div>,
+      element: <Dashboard />,
     },
     {
       path: "/categories",
